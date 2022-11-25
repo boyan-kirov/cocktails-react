@@ -1,13 +1,101 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav {
+    height: 40px;
+    display: flex;
+    padding: 20px 36px;
+    box-shadow: 0px 2.98px 7.45px rgba(0, 0, 0, 0.1);
+    background-color: dimgray;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+
+.header--icon {
+    margin-right: 20px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.random--icon {
+    margin-right: 20px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.header--text {
+    margin-right: auto;
+    color: black;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.cocktail {
+    width: 200px;
+    font-size: 12px;
+    flex: 0 0 auto; /* ADD */
+    display: flex; /* ADD */
+    flex-direction: column; /* ADD */
+    position: relative;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 3px 2.98px 7.45px rgba(0, 0, 0, 0.2);
+    color: black;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cocktail--image {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.cocktail--star {
+    width: 20px;
+    cursor: pointer;
+}
+
+.holder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cocktail--title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+}
+
+.cocktail--type {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.cocktail--instructions {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
+    margin-top: 10px;
+}
+
+.cocktail-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input--search {
+    font-family: 'Karla', sans-serif;
+    border-radius: 3px;
+    border: 1px solid #d5d4d8;
+    text-indent: 5px;
+    height: 30px;
+    font-size: 20px;
 }
