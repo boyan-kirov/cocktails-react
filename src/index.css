@@ -59,6 +59,13 @@ p {
     cursor: pointer;
 }
 
+.cocktail--change {
+    position: absolute;
+    top: 60px;
+    left: 25px;
+    width: 20px;
+}
+
 .holder {
     display: flex;
     align-items: center;

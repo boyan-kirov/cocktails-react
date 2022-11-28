@@ -7,10 +7,20 @@ export default function (props) {
                 <p className="cocktail--title">{props.name}</p>
                 <img
                     className="cocktail--star"
-                    src={props.isFavourite ? './images/star-filled.png' : './images/star-empty.png'}
+                    src={
+                        props.isFavourite
+                            ? './images/star-filled.png'
+                            : './images/star-empty.png'
+                    }
                     onClick={props.markFavourite}
                 />
             </div>
+            {props.isChanged && (
+                <img
+                    className="cocktail--change"
+                    src={'./images/changed.png'}
+                />
+            )}
             <img className="cocktail--image" src={props.image} />
             <p className="cocktail--type">
                 {props.type} / {props.glass}

@@ -13,7 +13,13 @@ export default function (props) {
                         type={c.type}
                         glass={c.glass}
                         instructions={c.instructions}
-                        isFavourite={props.favourites.find((f) => f.key === c.key)}
+                        isFavourite={props.favourites.find(
+                            (f) => f.key === c.key
+                        )}
+                        isChanged={
+                            props.favourites.find((f) => c.key === f.key)
+                                ?.isChanged
+                        }
                         markFavourite={() => props.markFavourite(c.key)}
                     />
                 );
