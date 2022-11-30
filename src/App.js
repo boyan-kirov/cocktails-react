@@ -12,18 +12,9 @@ function App() {
         const updatedFavourites = [];
         if (storedFavourites)
             for (const f of storedFavourites) {
-                const res = await fetch(
-                    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${f.key}`
-                );
+                const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${f.key}`);
                 const json = await res.json();
-                const {
-                    strDrink,
-                    strDrinkThumb,
-                    strAlcoholic,
-                    strGlass,
-                    strInstructions,
-                    idDrink,
-                } = json.drinks[0];
+                const { strDrink, strDrinkThumb, strAlcoholic, strGlass, strInstructions, idDrink } = json.drinks[0];
 
                 const cocktail = {
                     key: idDrink,
@@ -36,10 +27,7 @@ function App() {
                 };
 
                 if (cocktail.key === '17222') cocktail.name = 'Changed';
-                cocktail.isChanged =
-                    JSON.stringify(f) !== JSON.stringify(cocktail)
-                        ? true
-                        : false;
+                cocktail.isChanged = JSON.stringify(f) !== JSON.stringify(cocktail) ? true : false;
                 updatedFavourites.push(cocktail);
             }
 
@@ -53,14 +41,7 @@ function App() {
         const filtered = [];
         if (data.drinks) {
             data.drinks.forEach((e) => {
-                const {
-                    strDrink,
-                    strDrinkThumb,
-                    strAlcoholic,
-                    strGlass,
-                    strInstructions,
-                    idDrink,
-                } = e;
+                const { strDrink, strDrinkThumb, strAlcoholic, strGlass, strInstructions, idDrink } = e;
                 filtered.push({
                     key: idDrink,
                     name: strDrink,
@@ -87,16 +68,12 @@ function App() {
     }, [favourites]);
 
     React.useEffect(() => {
-        getCocktails(
-            'https://www.thecocktaildb.com/api/json/v1/1/search.php?s'
-        );
+        getCocktails('https://www.thecocktaildb.com/api/json/v1/1/search.php?s');
     }, []);
 
     function handleChange(event) {
         const value = event.target.value;
-        getCocktails(
-            `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`
-        );
+        getCocktails(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`);
     }
 
     function markFavourite(id) {
@@ -120,11 +97,7 @@ function App() {
             <div>
                 <Header
                     handleChange={handleChange}
-                    getRandom={() =>
-                        getCocktails(
-                            'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-                        )
-                    }
+                    getRandom={() => getCocktails('https://www.thecocktaildb.com/api/json/v1/1/random.php')}
                     getSome={() =>
                         getCocktails(
                             `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${
@@ -135,18 +108,10 @@ function App() {
                 />
                 <Switch>
                     <Route exact path="/">
-                        <CocktailList
-                            cocktails={cocktails}
-                            favourites={favourites}
-                            markFavourite={markFavourite}
-                        />
+                        <CocktailList cocktails={cocktails} favourites={favourites} markFavourite={markFavourite} />
                     </Route>
                     <Route exact path="/favourites">
-                        <CocktailList
-                            cocktails={favourites}
-                            favourites={favourites}
-                            markFavourite={markFavourite}
-                        />
+                        <CocktailList cocktails={favourites} favourites={favourites} markFavourite={markFavourite} />
                     </Route>
                 </Switch>
             </div>
